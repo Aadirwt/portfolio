@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Aaditya Singh Rawat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Aaditya Singh Rawat, an aspiring AI and machine learning developer." />
+  <title>Aaditya Singh Rawat | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Aaditya Rawat</h1>
-    <p>Computer Science Student</p>
-    <p>Portfolio coming soon...</p>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="Aaditya Singh Rawat home">AS<span>.</span></a>
+    <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#timeline">Timeline</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Available for opportunities</p>
+        <h1>Building thoughtful<br /><em>digital</em> experiences.</h1>
+        <p class="hero-text">Hi, I’m <strong>Aaditya Singh Rawat</strong> — an aspiring developer exploring the intersection of AI, machine learning, and meaningful software.</p>
+        <p class="type-line">I work with <span id="typed-text"></span><span class="cursor">|</span></p>
+        <div class="button-row"><a class="button primary" href="#projects">View my work <span>↗</span></a><a class="button text-button" href="#contact">Let’s connect →</a></div>
+      </div>
+      <div class="hero-art reveal delay-1" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orb"><span>AI</span></div><p>01 / PORTFOLIO<br />2026</p></div>
+      <a class="scroll-cue" href="#about">Scroll to explore <span>↓</span></a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-label reveal"><span>01</span> About me</div>
+      <div class="section-content"><h2 class="reveal">Curious by nature.<br /><em>Intentional</em> by design.</h2><div class="about-copy reveal delay-1"><p>I’m Aaditya, a technology enthusiast passionate about turning ideas into useful, accessible products. I enjoy learning by building — especially in artificial intelligence, web development, and data-driven problem solving.</p><p>My goal is simple: keep asking better questions, keep creating, and make technology feel more human along the way.</p><div class="stats"><div><strong>AI / ML</strong><span>Focus area</span></div><div><strong>2026</strong><span>Portfolio edition</span></div><div><strong>∞</strong><span>Things to learn</span></div></div></div></div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="section-label reveal"><span>02</span> Skills & tools</div>
+      <div class="skills-grid">
+        <article class="skill-card reveal"><span class="skill-number">01</span><h3>Development</h3><p>Building clean, responsive interfaces and practical web experiences.</p><ul><li>HTML & CSS</li><li>JavaScript</li><li>Responsive design</li></ul></article>
+        <article class="skill-card reveal delay-1"><span class="skill-number">02</span><h3>AI & Data</h3><p>Exploring intelligent systems through data, models, and experimentation.</p><ul><li>Python</li><li>Machine Learning</li><li>Data Analysis</li></ul></article>
+        <article class="skill-card reveal delay-2"><span class="skill-number">03</span><h3>Workflow</h3><p>Turning an open-ended idea into a focused, well-presented project.</p><ul><li>Problem Solving</li><li>Git & GitHub</li><li>Collaboration</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-top"><div class="section-label reveal"><span>03</span> Selected work</div><a class="small-link reveal" href="https://github.com/" target="_blank" rel="noreferrer">More on GitHub ↗</a></div>
+      <div class="project-list">
+        <article class="project reveal"><div class="project-index">01</div><div class="project-main"><p class="project-kind">AI & Machine Learning · Internship</p><h3>FlyRank</h3><p>Hands-on AI and machine learning internship work focused on learning, experimentation, and solving real-world challenges with intelligent tools.</p><div class="tags"><span>Python</span><span>Machine Learning</span><span>AI</span></div></div><div class="project-arrow">↗</div></article>
+        <article class="project reveal"><div class="project-index">02</div><div class="project-main"><p class="project-kind">Web Project · Exploration</p><h3>Campus Quest</h3><p>A campus-focused project concept designed to make information, discovery, and student experiences more engaging and accessible.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div><div class="project-arrow">↗</div></article>
+        <article class="project reveal"><div class="project-index">03</div><div class="project-main"><p class="project-kind">Coming soon</p><h3>Next experiment</h3><p>The next project is already taking shape. Watch this space for another practical build and a new learning story.</p><div class="tags"><span>In progress</span></div></div><div class="project-arrow">↗</div></article>
+      </div>
+    </section>
+
+    <section class="section timeline" id="timeline">
+      <div class="section-label reveal"><span>04</span> Internship timeline</div>
+      <div class="timeline-wrap reveal"><div class="timeline-item active"><p>Phase 01</p><h3>Foundation</h3><span>Learned core AI and ML concepts, tools, and project workflows.</span></div><div class="timeline-line"></div><div class="timeline-item"><p>Phase 02</p><h3>Practice</h3><span>Applied concepts through guided tasks and hands-on experimentation.</span></div><div class="timeline-line"></div><div class="timeline-item"><p>Phase 03</p><h3>Growth</h3><span>Building confidence through reflection, iteration, and real project exposure.</span></div></div>
+    </section>
+
+    <section class="section resume" id="resume"><div class="resume-panel reveal"><p class="eyebrow"><span></span> Resume</p><h2>Want the details?</h2><p>A concise overview of my education, experience, skills, and projects is one click away.</p><a class="button primary" href="resume.pdf" target="_blank">Download résumé <span>↓</span></a><small>Add your PDF as <code>resume.pdf</code> in this folder to activate this button.</small></div></section>
+
+    <section class="section contact" id="contact"><div class="section-label reveal"><span>05</span> Contact</div><div class="contact-body reveal"><p class="contact-pre">Have an idea, opportunity, or just want to say hello?</p><a class="contact-email" href="mailto:aadityasinghrawat68@gmail.com">Let’s talk<span>.</span></a><p class="contact-note">Replace <code>aaditya@example.com</code> with your email address in <code>index.html</code>.</p></div></section>
+  </main>
+
+  <footer><a class="logo" href="#home">AS<span>.</span></a><p>Designed & built by Aaditya Singh Rawat</p><div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></div></footer>
+  <script src="script.js"></script>
 </body>
 </html>
