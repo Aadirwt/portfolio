@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,35 +8,216 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
+      max-width: 950px;
       margin: auto;
       padding: 40px 20px;
       line-height: 1.7;
+      color: #222;
     }
-    h1, h2 { color: #222; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; }
-    th { background: #f5f5f5; }
+
+    h1, h2 {
+      color: #111;
+      margin-top: 40px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #f5f5f5;
+    }
+
+    code {
+      background: #f2f2f2;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
+
   <h1>Content Prioritization Using SEO Metrics and Decision Tree Classification</h1>
+
   <p><strong>Author:</strong> Aaditya Singh Rawat</p>
 
   <h2>Abstract</h2>
-  <p>This paper presents a lightweight machine learning workflow for prioritizing SEO content optimization opportunities using search volume, CTR, average position, engagement rate, and impression metrics.</p>
+  <p>
+    This project investigates whether SEO performance metrics can be used to prioritize
+    content optimization opportunities. A Decision Tree Classifier was applied to search
+    volume, CTR, average position, engagement rate, and impression data from an anonymized
+    FlyRank internship dataset. Grouped validation using <code>GroupKFold</code> was used
+    to reduce leakage risk between clients. The model was compared with a rule-based baseline
+    and produced identical accuracy on the grouped split, indicating that the current target
+    definition is strongly aligned with the baseline logic.
+  </p>
+
+  <h2>Introduction / Problem Statement</h2>
+  <p>
+    Websites generate large volumes of SEO data, making it difficult to decide which pages
+    should be optimized first. Manual review and simple threshold rules do not scale well
+    across thousands of pages. The goal of this project is to build a lightweight and
+    interpretable workflow that identifies pages requiring higher optimization priority
+    using common SEO performance metrics.
+  </p>
+
+  <h2>Data</h2>
+  <ul>
+    <li><strong>Dataset:</strong> <code>content_refresh_anonymized.csv</code></li>
+    <li><strong>Rows:</strong> ~30,000</li>
+    <li><strong>Columns:</strong> 44</li>
+  </ul>
+
+  <p><strong>Features used:</strong></p>
+  <ul>
+    <li>search_volume</li>
+    <li>ctr</li>
+    <li>avg_position</li>
+    <li>engagement_rate</li>
+    <li>impressions_90d</li>
+  </ul>
+
+  <p>
+    A binary target called <strong>priority</strong> was created using the Week 4 baseline rule:
+    search volume above the median, CTR below the median, and average position greater than 10.
+  </p>
+
+  <h2>Methodology</h2>
+  <p>
+    A <strong>Decision Tree Classifier (max_depth=4)</strong> was selected because it is
+    easy to interpret and suitable for tabular SEO data. The Week 4 rule-based baseline
+    was retained for comparison.
+  </p>
+
+  <p><strong>Validation design:</strong></p>
+  <ul>
+    <li>Method: <code>GroupKFold(n_splits=5)</code></li>
+    <li>Grouping column: <code>client_id</code></li>
+    <li>Training rows: <strong>22,992</strong></li>
+    <li>Testing rows: <strong>7,008</strong></li>
+  </ul>
 
   <h2>Results</h2>
+
   <table>
-    <tr><th>Model</th><th>Accuracy</th></tr>
-    <tr><td>Week 4 Baseline</td><td>1.00</td></tr>
-    <tr><td>Decision Tree</td><td>1.00</td></tr>
+    <tr>
+      <th>Dataset</th>
+      <th>Rows</th>
+    </tr>
+    <tr>
+      <td>Training</td>
+      <td>22,992</td>
+    </tr>
+    <tr>
+      <td>Testing</td>
+      <td>7,008</td>
+    </tr>
   </table>
 
-  <h2>Repository</h2>
-  <p><a href="https://github.com/Aadirwt/Internship">GitHub Repository</a></p>
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Accuracy</th>
+    </tr>
+    <tr>
+      <td>Week 4 Baseline</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Decision Tree</td>
+      <td>1.00</td>
+    </tr>
+  </table>
 
-  <h2>Data Credit</h2>
-  <p>Built on the FlyRank ML internship dataset and learning materials. <a href="https://flyrank.ai">https://flyrank.ai</a></p>
+  <p>
+    The identical accuracy suggests that the current target variable is strongly determined
+    by the same threshold conditions used in the baseline rule. Therefore, the model should
+    be interpreted as reproducing the baseline behavior rather than demonstrating substantially
+    better predictive performance.
+  </p>
+
+  <h2>Limitations & Honest Framing</h2>
+  <ul>
+    <li>The target variable was derived from manually defined thresholds.</li>
+    <li>Accuracy alone is not sufficient to measure SEO business impact.</li>
+    <li>The dataset is anonymized internship data and may not represent all production SEO scenarios.</li>
+    <li>The current label definition is closely aligned with the baseline logic.</li>
+    <li>The workflow is intended for <strong>decision support</strong>, not autonomous SEO optimization.</li>
+  </ul>
+
+  <h2>Ranked Recommendations</h2>
+
+  <table>
+    <tr>
+      <th>Priority</th>
+      <th>Action</th>
+      <th>Reason</th>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>Refresh title and meta description</td>
+      <td>High impressions with low CTR may indicate weak search snippets.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>Add internal links</td>
+      <td>Pages ranking near the first page may benefit from stronger internal linking.</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>Improve search snippet structure</td>
+      <td>Better headings and descriptions may improve click-through rate.</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>Update outdated content</td>
+      <td>Older content may lose relevance over time.</td>
+    </tr>
+    <tr>
+      <td>Low</td>
+      <td>Monitor only</td>
+      <td>Stable pages with acceptable performance require observation rather than immediate action.</td>
+    </tr>
+  </table>
+
+  <h2>Reproducibility</h2>
+  <p><strong>Repository:</strong> <a href="https://github.com/Aadirwt/Internship">GitHub Repository</a></p>
+
+  <p><strong>Related notebooks:</strong></p>
+  <ul>
+    <li><code>w05_capstone_modeling.ipynb</code></li>
+    <li><code>w06_validation_audit.ipynb</code></li>
+    <li><code>w07_action_playbook.ipynb</code></li>
+  </ul>
+
+  <p><strong>Portfolio:</strong> <a href="https://aadirwt.github.io/portfolio/">Portfolio Website</a></p>
+
+  <p>
+    The analysis was executed in Google Colab using Python, pandas, and scikit-learn.
+    Running the notebooks in sequence reproduces the workflow and outputs reported in this paper.
+  </p>
+
+  <h2>Acknowledgements & Data Credit</h2>
+  <p>
+    This project was developed as part of the <strong>FlyRank ML Internship Program</strong>.
+    The anonymized internship dataset and research workflow were provided through
+    <strong>FlyRank AI</strong> for educational and research purposes.
+  </p>
+
+  <p>
+    Data source and program reference:
+    <a href="https://flyrank.ai">https://flyrank.ai</a>
+  </p>
+
 </body>
 </html>
+```
