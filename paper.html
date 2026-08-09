@@ -211,7 +211,35 @@
     The anonymized internship dataset and research workflow were provided through
     <strong>FlyRank AI</strong> for educational and research purposes.
   </p>
+  <h2>Five-Minute Demo Outline</h2>
 
+<h3>1. Problem</h3>
+<p>This project addresses the FlyRank content prioritization problem by identifying which SEO pages should be optimized first using measurable SEO signals instead of manual guesswork.</p>
+
+<h3>2. Method</h3>
+<ul>
+  <li>Dataset: FlyRank anonymized SEO dataset</li>
+  <li>Features: search volume, CTR, average position, engagement rate, impressions_90d</li>
+  <li>Model: Decision Tree Classifier</li>
+  <li>Validation: GroupKFold grouped by client_id</li>
+</ul>
+
+<h3>3. One Honest Result</h3>
+<p>Grouped validation reduced the risk of client-level leakage and made the workflow more trustworthy, even though the reported accuracy remained unchanged.</p>
+
+<h3>4. Recommendation</h3>
+<ol>
+  <li>Refresh titles and meta descriptions</li>
+  <li>Add relevant internal links</li>
+  <li>Improve search snippets</li>
+  <li>Update outdated content</li>
+</ol>
+
+<h2>Shareable Social Post</h2>
+<p>Built a lightweight SEO Content Prioritization workflow using the FlyRank ML internship dataset. The project combines a rule-based baseline, a Decision Tree model, grouped validation, and a ranked content action playbook for practical optimization decisions.</p>
+
+<h2>Employer-Facing Summary</h2>
+<p>I built a lightweight machine learning workflow for prioritizing SEO content optimization opportunities using anonymized FlyRank internship data. The project compared a rule-based baseline with a Decision Tree model, added grouped validation and leakage checks, and converted the validated output into a ranked content action playbook for human review.</p>
   <p>
     Data source and program reference:
     <a href="https://flyrank.ai">https://flyrank.ai</a>
